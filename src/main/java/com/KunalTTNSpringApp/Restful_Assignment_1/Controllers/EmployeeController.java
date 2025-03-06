@@ -2,6 +2,7 @@ package com.KunalTTNSpringApp.Restful_Assignment_1.Controllers;
 
 import com.KunalTTNSpringApp.Restful_Assignment_1.Models.Employee;
 import com.KunalTTNSpringApp.Restful_Assignment_1.Services.EmployeeService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +38,7 @@ public class EmployeeController {
     }
 
     @PostMapping
-    public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee)
+    public ResponseEntity<Employee> addEmployee(@Valid @RequestBody Employee employee)
     {
         return new ResponseEntity<>(employeeService.addEmployee(employee), HttpStatus.CREATED);
     }

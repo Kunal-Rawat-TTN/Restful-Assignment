@@ -49,6 +49,12 @@ public class EmployeeController {
         return new ResponseEntity<>("User ID "+id+" Deleted ",HttpStatus.OK);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<Employee> updateEmployeeByID(@PathVariable Integer id, @RequestBody Employee employee)
+    {
+        return new ResponseEntity<>(employeeService.updateEmployee(id,employee),HttpStatus.OK);
+    }
+
     @GetMapping("/test")
     public String testResponse()
     {
